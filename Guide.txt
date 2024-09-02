@@ -1,0 +1,12 @@
+Components :->>>
+
+1. Current Temperature Indicator.
+2. Whole Day graph.
+3. Next 8 days and previous 1 day forcast.
+4. AQI Of the Area.
+5. Sunset and Sunrise time.
+6. Wind Direction
+7. Humidity
+8. ..........Other details given by api.
+
+9. Every details for next days also if possible.
