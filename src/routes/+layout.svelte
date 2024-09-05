@@ -1,7 +1,7 @@
 <script>
   import "../app.css";
   import { goto } from "$app/navigation";
-  let city = "Varanasi";
+  let city = "";
 
   function search() {
     goto(`/forcastDetails?city=${city}`);
