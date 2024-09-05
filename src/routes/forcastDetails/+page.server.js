@@ -5,7 +5,7 @@ export const load = async ({ url }) => {
   console.log("Origin", url.origin)
 
   try {
-    const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=10`);
+    const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=5`);
     if (!response.ok) throw new Error('Failed to fetch weather data');
     const weatherData = await response.json();
   console.log("Api Fetched")

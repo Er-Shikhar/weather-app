@@ -1,7 +1,7 @@
 <script>
   import "../app.css";
   import { goto } from "$app/navigation";
-  let city = "";
+  let city = "Varanasi";
 
   function search() {
     goto(`/forcastDetails?city=${city}`);
@@ -13,11 +13,11 @@
   <div class="searchContainer">
     <input
       type="text"
-      class="inputCity"
+      class="inputCity glassCard"
       bind:value={city}
       placeholder="Search for a city..."
     />
-    <button on:click={search} class="searchButton">🔍</button>
+    <button on:click={search} class="searchButton glassCard">🔍</button>
   </div>
 </div>
 <slot />
@@ -37,7 +37,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    width: 100%;
+    width: calc(100% - 50px);
     max-width: 500px;
   }
 
@@ -46,7 +46,7 @@
     padding: 10px;
     font-size: 1rem;
     border-radius: 25px;
-    border: 2px solid #ccc;
+    /* border: 2px solid #ccc; */
     width: calc(100% - 50px); /* Adjust width relative to the button */
   }
 
@@ -69,9 +69,18 @@
     background-color: #005fa3;
   }
 
+  .glassCard {
+    backdrop-filter:blur(3px);
+    background-color: rgba(0, 0, 0, 0.092);
+    color: white;
+    box-shadow: 0px 0px 10px 5px rgba(96, 96, 96, 0.837);
+  }
   @media (max-width: 768px) {
+    .headerContainer {
+    position:relative;
+  }
     .searchContainer {
-      flex-direction: column;
+      flex-direction: row;
       gap: 15px;
     }
 
@@ -80,7 +89,6 @@
     }
 
     .searchButton {
-      width: 100%;
       border-radius: 25px;
     }
   }

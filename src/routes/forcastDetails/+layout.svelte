@@ -9,6 +9,5 @@
     display: grid;
     /* grid-template-rows: auto auto auto; */
     gap: 10px;
-    padding: 20px;
   }
 </style>
