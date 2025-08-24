@@ -1,4 +1,5 @@
 <script>
+  // @ts-ignore
   export let data;
   let { weatherData, error } = data;
 
@@ -6,6 +7,7 @@
   const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
   // Format date to display in table
+  // @ts-ignore
   function formatDate(date) {
     const day = date.slice(8);
     const month = monthNames[new Date(date).getMonth()];
@@ -13,6 +15,7 @@
   }
 
   // Extract day of the week
+  // @ts-ignore
   function getDayOfWeek(date) {
     return weekDay[new Date(date).getDay()];
   }
@@ -22,6 +25,7 @@
   let seconds = 0;
 
   // Function to format the time with leading zero
+  // @ts-ignore
   function formatTime(number) {
     return number.toString().padStart(2, '0');
   }
@@ -38,6 +42,7 @@
 
   let windDirection = 0;
 
+  // @ts-ignore
   function getWindDirectionAngle(direction) {
     const directions = {
       'N': 0, 'NNE': 22.5, 'NE': 45, 'ENE': 67.5,
@@ -45,9 +50,11 @@
       'S': 180, 'SSW': 202.5, 'SW': 225, 'WSW': 247.5,
       'W': 270, 'WNW': 292.5, 'NW': 315, 'NNW': 337.5
     };
+    // @ts-ignore
     return directions[direction] || 0;  // Default to North if unknown
   }
 
+  // @ts-ignore
   $: windDirection = getWindDirectionAngle(weatherData.current.wind_dir);
 </script>
 
@@ -98,7 +105,7 @@
           <tr>
             <th>Time</th>
             <th>Temp</th>
-            <th>Condition</th>
+            <th colspan="2">Condition</th>
           </tr>
         </thead>
         <tbody>
@@ -106,7 +113,7 @@
             <tr>
               <td>{hour.time.slice(11)}</td>
               <td>{hour.temp_c}°C</td>
-              <td>{hour.condition.text}</td>
+              <td colspan="2" >{hour.condition.text}</td>
             </tr>
           {/each}
         </tbody>
@@ -219,7 +226,7 @@
 
 <style>
   .container {
-    display: grid;
+    /* display: grid; */
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     width: 100vw;
